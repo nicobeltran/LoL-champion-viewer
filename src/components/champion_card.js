@@ -1,4 +1,5 @@
 import React from 'react';
+import ChampionAbilities from './champion_abilities';
 
 const ChampionCard = ({currentChampionData, onCardClickBack}) => {
     let champion = currentChampionData;
@@ -11,11 +12,7 @@ const ChampionCard = ({currentChampionData, onCardClickBack}) => {
 
     const loadingSplashUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`
     const stats = champion.stats;
-    console.log(champion);
-
-    const abilities = champion.spells.map((spell) => {
-        return <div className="col-2" key={spell.id}><img src={`http://ddragon.leagueoflegends.com/cdn/8.13.1/img/spell/${spell.image.full}`} alt={spell.name + " pic"}/></div>
-    })
+    // console.log(champion);
 
     return (
         <div className="container">
@@ -37,9 +34,9 @@ const ChampionCard = ({currentChampionData, onCardClickBack}) => {
                     <div>
                         Attack Damage: {Math.round(stats.attackdamage)} - {Math.round(stats.attackdamageperlevel * 18 + stats.attackdamage)} ({stats.attackdamageperlevel} per level)
                     </div>
-                    <div className="row">
-                        {abilities}
-                    </div>
+                    {/* <div className="row"> */}
+                        <ChampionAbilities championData={champion}/>
+                    {/* </div> */}
                     
                     <div onClick={() => onCardClickBack()}>
                         BACK

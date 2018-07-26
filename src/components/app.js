@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
-import ChampionCard from './components/champion_card';
-import ChampionList from './components/champion_list';
+import '../App.css';
+import ChampionCard from './champion_card';
+import ChampionList from './champion_list';
 
 const axios = require('axios');
-
 const CHAMPIONS_DATA_URL = 'http://ddragon.leagueoflegends.com/cdn/8.13.1/data/en_US/champion.json';
+
 class App extends Component {
-  constructor(props) { 
+  constructor(props) {
     super(props);
     
     this.state = {
@@ -37,8 +37,8 @@ class App extends Component {
 
   }
 
-  onChampionClick = (champInfo) => {
-    let championUrl = `http://ddragon.leagueoflegends.com/cdn/8.13.1/data/en_US/champion/${champInfo.id}.json`
+  handleChampionClick = (champInfo) => {
+    let championUrl = `http://ddragon.leagueoflegends.com/cdn/8.14.1/data/en_US/champion/${champInfo.id}.json`
 
     axios.get(championUrl)
     .then(response => {
@@ -47,12 +47,10 @@ class App extends Component {
         currentView: 'champion-card'
       })
     })
-
-    
     
   }
 
-  onCardClickBack = () => {
+  handleCardClickBack = () => {
     this.setState({
       currentView: 'champion-list',
       currentChampionData: ''
@@ -63,15 +61,14 @@ class App extends Component {
   render() {
     if (this.state.currentView === 'champion-card') {
       return (
-        <ChampionCard onCardClickBack={this.onCardClickBack} currentChampionData={this.state.currentChampionData}/>
+        <ChampionCard onCardClickBack={this.handleCardClickBack} currentChampionData={this.state.currentChampionData}/>
       );
     }
 
     return (
       <div>
-      <ChampionList onChampionClick={this.onChampionClick} championsData={this.state.championsData} />
+      <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} />
       </div>
-      
       
     );
   }

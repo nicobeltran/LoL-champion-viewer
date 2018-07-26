@@ -9,7 +9,7 @@ const ChampionList = ({championsData, onChampionClick}) => {
     })
     
     return (
-        <div className="container">
+        <div className="container champion-list text-center">
             <div className='row'>
                 {ChampionListItems}
             </div>
