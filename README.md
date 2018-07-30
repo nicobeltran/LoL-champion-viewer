@@ -4,6 +4,9 @@ This web application displays all of the League of Legends champions and provide
 # Current Stage
 Application is still in its initial stages. At the moment, it has very barebones styling and provides very minimal champion information.
 
+# Known issues
+- Some ability text is formatted incorrectly due to missing data in Riot's Data Dragon service.
+
 # To run
 1. Clone repository.
 2. Change current directory to the cloned repository.
