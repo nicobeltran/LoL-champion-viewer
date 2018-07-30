@@ -3,7 +3,7 @@ import React from 'react';
 const ChampionAbilitiesImages = (props) => {
 
     // take props from ChampionAbilities for current champion's spells and map it into individual columns with images
-    console.log(props.currentAbility);
+    // console.log(props.currentAbility);
     const abilityImages = props.abilities.map((spell, index) => {
         if (spell === props.currentAbility) {
             return (

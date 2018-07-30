@@ -1,6 +1,7 @@
 import React from 'react';
 import ChampionAbilities from './champion_abilities';
 
+
 const ChampionCard = ({currentChampionData, onCardClickBack}) => {
     let champion = currentChampionData;
     if (!currentChampionData) {
@@ -12,8 +13,8 @@ const ChampionCard = ({currentChampionData, onCardClickBack}) => {
 
     const loadingSplashUrl = `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${champion.id}_0.jpg`
     const stats = champion.stats;
-    // console.log(champion);
-
+    const skins = champion.skins;
+    // console.log(skins);
     return (
         <div className="container">
             <div className="row">

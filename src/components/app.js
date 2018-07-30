@@ -4,7 +4,7 @@ import ChampionCard from './champion_card';
 import ChampionList from './champion_list';
 
 const axios = require('axios');
-const CHAMPIONS_DATA_URL = 'http://ddragon.leagueoflegends.com/cdn/8.13.1/data/en_US/champion.json';
+const CHAMPIONS_DATA_URL = 'http://ddragon.leagueoflegends.com/cdn/8.14.1/data/en_US/champion.json';
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +12,6 @@ class App extends Component {
     
     this.state = {
       currentView: 'champion-list',
-      // currentChampionSelected: '',
       currentChampionData: '',
       championsData: []
     }
@@ -39,7 +38,7 @@ class App extends Component {
 
   handleChampionClick = (champInfo) => {
     let championUrl = `http://ddragon.leagueoflegends.com/cdn/8.14.1/data/en_US/champion/${champInfo.id}.json`
-
+    
     axios.get(championUrl)
     .then(response => {
       this.setState({
@@ -66,8 +65,13 @@ class App extends Component {
     }
 
     return (
-      <div>
-      <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} />
+      <div className="container">
+        <div className="row add-margin-bottom15px">
+          <div className="col">
+            <h1>League of Legends Champion Viewer </h1>
+          </div>
+        </div>
+        <ChampionList onChampionClick={this.handleChampionClick} championsData={this.state.championsData} />
       </div>
       
     );
