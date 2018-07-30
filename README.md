@@ -1,4 +1,4 @@
-# League of Legends Champion Viewer
+# League of Legends Champion TLDRs
 This web application displays all of the League of Legends champions and provides users with information about each one, such as stats, abilities, skin pictures, and more. I wanted to develop this project to gain more practice with React and to have an easier way of checking champion ability scaling because the current League of Legends client does not provide that information.
 
 # Current Stage
